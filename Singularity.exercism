@@ -1,0 +1,14 @@
+bootstrap: docker
+from: ubuntu:latest
+
+%post
+
+  apt-get update
+  apt-get install -y wget
+
+  mkdir /src
+  cd /src
+  wget https://github.com/exercism/cli/releases/download/v2.4.1/exercism-linux-64bit.tgz
+  tar -xzvf exercism-linux-64bit.tgz
+  mv exercism /usr/local/bin
+  rm exercism-linux-64bit.tgz
